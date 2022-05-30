@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content-based Image Retrieval</title>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="logo">
+    <div class="img_cs">
+        <img src="static/logo/uit_logo.png" alt="cs.png" />
+    </div>
+    <div class="img_uit">
+        <img src="static/logo/cs_logo.png" alt="uit.png" />
+    </div>
+    <div class="text">
+    <h1>Content-based Image Retrieval v1.0</h1>
+    <h4>@ Developed by Nguyen Thanh Vuong</h4>
+  </div>
+  </div>
+    <div class="app">
+      <div class="form-section">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <h1>Upload Image</h1>
+          <div class="upload-containter">
+          <input type="file" name="file" accept="image/*" id="my-file" class="upload-btn">
+          <!-- <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label> -->
+        </div>
+        </br>
+          <input type="submit" value="Query" class="submit-btn">
+      </form>
+      </div>
+      <div class="query-result">
+        <div class="img-res">
+        {% for image in query_img %}
+        <a href="{{ image }}" target="_blank">
+            <img src="{{ image }}" width="112" height=150>
+        </a>
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+    <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+</body>
+</html>

@@ -1,0 +1,6 @@
+python==3.10
+scikit-learn
+matplotlib
+pandas
+nltk
+tensorflow==2.8.0
