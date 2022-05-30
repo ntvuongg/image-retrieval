@@ -57,7 +57,7 @@ def query():
     search_vector = extract_vector(model, img_query)
 
     # Distance from query's vector to all vector in dataset
-    distance = np.linalg.norm(vectors - search_vector, axis=1)
+    distance = np.linalg.norm(vectors - search_vector, axis=1) # L2-Norm
 
     K = 10 # Return top K image same as query image 
     ids = np.argsort(distance)[:K]
